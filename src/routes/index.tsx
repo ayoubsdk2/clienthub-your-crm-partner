@@ -36,7 +36,7 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "ClientHub — The CRM revenue teams actually enjoy" },
       {
         property: "og:description",
-        content: "Pipeline, customers, tasks and revenue analytics in one fast, beautiful CRM workspace.",
+        content: "ClientHub unifies pipeline, customers, tasks and revenue analytics in one fast workspace. Explore the live demo with realistic data.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },

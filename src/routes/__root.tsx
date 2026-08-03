@@ -87,15 +87,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "ClientHub — Modern CRM for revenue teams" },
+      { title: "ClientHub — The CRM revenue teams actually enjoy" },
       {
         name: "description",
-        content: "ClientHub is a premium CRM for pipeline, customers and revenue analytics.",
+        content: "ClientHub unifies pipeline, customers, tasks and revenue analytics in one fast workspace. Explore the live demo with realistic data.",
       },
       { name: "author", content: "ClientHub" },
       { property: "og:site_name", content: "ClientHub" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "ClientHub — The CRM revenue teams actually enjoy" },
+      { name: "twitter:title", content: "ClientHub — The CRM revenue teams actually enjoy" },
+      { property: "og:description", content: "ClientHub unifies pipeline, customers, tasks and revenue analytics in one fast workspace. Explore the live demo with realistic data." },
+      { name: "twitter:description", content: "ClientHub unifies pipeline, customers, tasks and revenue analytics in one fast workspace. Explore the live demo with realistic data." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ffea15bd-c684-43f3-8dcb-40b768098512/id-preview-869797a7--62f66c72-3335-492b-ae1d-35a5b30da51b.lovable.app-1785765260166.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/ffea15bd-c684-43f3-8dcb-40b768098512/id-preview-869797a7--62f66c72-3335-492b-ae1d-35a5b30da51b.lovable.app-1785765260166.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
