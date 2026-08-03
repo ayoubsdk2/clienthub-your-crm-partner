@@ -15,9 +15,11 @@ import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppCalendarRouteImport } from './routes/app.calendar'
 import { Route as AppContactsRouteImport } from './routes/app.contacts'
 import { Route as AppLeadsRouteImport } from './routes/app.leads'
 import { Route as AppPipelineRouteImport } from './routes/app.pipeline'
+import { Route as AppTasksRouteImport } from './routes/app.tasks'
 import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
 import { Route as AppCustomersNewRouteImport } from './routes/app.customers.new'
 import { Route as AppCustomersCustomerIdIndexRouteImport } from './routes/app.customers.$customerId.index'
@@ -53,6 +55,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCalendarRoute = AppCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppContactsRoute = AppContactsRouteImport.update({
   id: '/contacts',
   path: '/contacts',
@@ -66,6 +73,11 @@ const AppLeadsRoute = AppLeadsRouteImport.update({
 const AppPipelineRoute = AppPipelineRouteImport.update({
   id: '/pipeline',
   path: '/pipeline',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTasksRoute = AppTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
   getParentRoute: () => AppRoute,
 } as any)
 const AppCustomersIndexRoute = AppCustomersIndexRouteImport.update({
@@ -97,9 +109,11 @@ export interface FileRoutesByFullPath {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers/': typeof AppCustomersIndexRoute
@@ -111,9 +125,11 @@ export interface FileRoutesByTo {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/tasks': typeof AppTasksRoute
   '/app': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers': typeof AppCustomersIndexRoute
@@ -127,9 +143,11 @@ export interface FileRoutesById {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers/': typeof AppCustomersIndexRoute
@@ -144,9 +162,11 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/app/calendar'
     | '/app/contacts'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
     | '/app/customers/'
@@ -158,9 +178,11 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/app/calendar'
     | '/app/contacts'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/tasks'
     | '/app'
     | '/app/customers/new'
     | '/app/customers'
@@ -173,9 +195,11 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/app/calendar'
     | '/app/contacts'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
     | '/app/customers/'
@@ -235,6 +259,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/calendar': {
+      id: '/app/calendar'
+      path: '/calendar'
+      fullPath: '/app/calendar'
+      preLoaderRoute: typeof AppCalendarRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/contacts': {
       id: '/app/contacts'
       path: '/contacts'
@@ -254,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/pipeline'
       fullPath: '/app/pipeline'
       preLoaderRoute: typeof AppPipelineRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/tasks': {
+      id: '/app/tasks'
+      path: '/tasks'
+      fullPath: '/app/tasks'
+      preLoaderRoute: typeof AppTasksRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/customers/': {
@@ -288,9 +326,11 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppRouteChildren {
+  AppCalendarRoute: typeof AppCalendarRoute
   AppContactsRoute: typeof AppContactsRoute
   AppLeadsRoute: typeof AppLeadsRoute
   AppPipelineRoute: typeof AppPipelineRoute
+  AppTasksRoute: typeof AppTasksRoute
   AppIndexRoute: typeof AppIndexRoute
   AppCustomersNewRoute: typeof AppCustomersNewRoute
   AppCustomersIndexRoute: typeof AppCustomersIndexRoute
@@ -299,9 +339,11 @@ interface AppRouteChildren {
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppCalendarRoute: AppCalendarRoute,
   AppContactsRoute: AppContactsRoute,
   AppLeadsRoute: AppLeadsRoute,
   AppPipelineRoute: AppPipelineRoute,
+  AppTasksRoute: AppTasksRoute,
   AppIndexRoute: AppIndexRoute,
   AppCustomersNewRoute: AppCustomersNewRoute,
   AppCustomersIndexRoute: AppCustomersIndexRoute,
