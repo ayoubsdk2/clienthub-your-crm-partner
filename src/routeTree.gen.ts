@@ -10,33 +10,269 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppRouteImport } from './routes/app'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppCalendarRouteImport } from './routes/app.calendar'
+import { Route as AppContactsRouteImport } from './routes/app.contacts'
+import { Route as AppEmailRouteImport } from './routes/app.email'
+import { Route as AppHelpRouteImport } from './routes/app.help'
+import { Route as AppLeadsRouteImport } from './routes/app.leads'
+import { Route as AppPipelineRouteImport } from './routes/app.pipeline'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
+import { Route as AppTasksRouteImport } from './routes/app.tasks'
+import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
+import { Route as AppCustomersNewRouteImport } from './routes/app.customers.new'
+import { Route as AppCustomersCustomerIdIndexRouteImport } from './routes/app.customers.$customerId.index'
+import { Route as AppCustomersCustomerIdEditRouteImport } from './routes/app.customers.$customerId.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCalendarRoute = AppCalendarRouteImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppContactsRoute = AppContactsRouteImport.update({
+  id: '/contacts',
+  path: '/contacts',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppEmailRoute = AppEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppHelpRoute = AppHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeadsRoute = AppLeadsRouteImport.update({
+  id: '/leads',
+  path: '/leads',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppPipelineRoute = AppPipelineRouteImport.update({
+  id: '/pipeline',
+  path: '/pipeline',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppTasksRoute = AppTasksRouteImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersIndexRoute = AppCustomersIndexRouteImport.update({
+  id: '/customers/',
+  path: '/customers/',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersNewRoute = AppCustomersNewRouteImport.update({
+  id: '/customers/new',
+  path: '/customers/new',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersCustomerIdIndexRoute =
+  AppCustomersCustomerIdIndexRouteImport.update({
+    id: '/customers/$customerId/',
+    path: '/customers/$customerId/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCustomersCustomerIdEditRoute =
+  AppCustomersCustomerIdEditRouteImport.update({
+    id: '/customers/$customerId/edit',
+    path: '/customers/$customerId/edit',
+    getParentRoute: () => AppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
+  '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/tasks': typeof AppTasksRoute
+  '/app/': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
+  '/app/customers/': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId/': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
+  '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/tasks': typeof AppTasksRoute
+  '/app': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
+  '/app/customers': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/app/calendar': typeof AppCalendarRoute
+  '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
+  '/app/leads': typeof AppLeadsRoute
+  '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
+  '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
+  '/app/tasks': typeof AppTasksRoute
+  '/app/': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
+  '/app/customers/': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId/': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/app/calendar'
+    | '/app/contacts'
+    | '/app/email'
+    | '/app/help'
+    | '/app/leads'
+    | '/app/pipeline'
+    | '/app/profile'
+    | '/app/reports'
+    | '/app/settings'
+    | '/app/tasks'
+    | '/app/'
+    | '/app/customers/new'
+    | '/app/customers/'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/app/calendar'
+    | '/app/contacts'
+    | '/app/email'
+    | '/app/help'
+    | '/app/leads'
+    | '/app/pipeline'
+    | '/app/profile'
+    | '/app/reports'
+    | '/app/settings'
+    | '/app/tasks'
+    | '/app'
+    | '/app/customers/new'
+    | '/app/customers'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/app/calendar'
+    | '/app/contacts'
+    | '/app/email'
+    | '/app/help'
+    | '/app/leads'
+    | '/app/pipeline'
+    | '/app/profile'
+    | '/app/reports'
+    | '/app/settings'
+    | '/app/tasks'
+    | '/app/'
+    | '/app/customers/new'
+    | '/app/customers/'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +284,187 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/calendar': {
+      id: '/app/calendar'
+      path: '/calendar'
+      fullPath: '/app/calendar'
+      preLoaderRoute: typeof AppCalendarRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/contacts': {
+      id: '/app/contacts'
+      path: '/contacts'
+      fullPath: '/app/contacts'
+      preLoaderRoute: typeof AppContactsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/email': {
+      id: '/app/email'
+      path: '/email'
+      fullPath: '/app/email'
+      preLoaderRoute: typeof AppEmailRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/help': {
+      id: '/app/help'
+      path: '/help'
+      fullPath: '/app/help'
+      preLoaderRoute: typeof AppHelpRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leads': {
+      id: '/app/leads'
+      path: '/leads'
+      fullPath: '/app/leads'
+      preLoaderRoute: typeof AppLeadsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/pipeline': {
+      id: '/app/pipeline'
+      path: '/pipeline'
+      fullPath: '/app/pipeline'
+      preLoaderRoute: typeof AppPipelineRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/tasks': {
+      id: '/app/tasks'
+      path: '/tasks'
+      fullPath: '/app/tasks'
+      preLoaderRoute: typeof AppTasksRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/': {
+      id: '/app/customers/'
+      path: '/customers'
+      fullPath: '/app/customers/'
+      preLoaderRoute: typeof AppCustomersIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/new': {
+      id: '/app/customers/new'
+      path: '/customers/new'
+      fullPath: '/app/customers/new'
+      preLoaderRoute: typeof AppCustomersNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/$customerId/': {
+      id: '/app/customers/$customerId/'
+      path: '/customers/$customerId'
+      fullPath: '/app/customers/$customerId/'
+      preLoaderRoute: typeof AppCustomersCustomerIdIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/$customerId/edit': {
+      id: '/app/customers/$customerId/edit'
+      path: '/customers/$customerId/edit'
+      fullPath: '/app/customers/$customerId/edit'
+      preLoaderRoute: typeof AppCustomersCustomerIdEditRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppCalendarRoute: typeof AppCalendarRoute
+  AppContactsRoute: typeof AppContactsRoute
+  AppEmailRoute: typeof AppEmailRoute
+  AppHelpRoute: typeof AppHelpRoute
+  AppLeadsRoute: typeof AppLeadsRoute
+  AppPipelineRoute: typeof AppPipelineRoute
+  AppProfileRoute: typeof AppProfileRoute
+  AppReportsRoute: typeof AppReportsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
+  AppTasksRoute: typeof AppTasksRoute
+  AppIndexRoute: typeof AppIndexRoute
+  AppCustomersNewRoute: typeof AppCustomersNewRoute
+  AppCustomersIndexRoute: typeof AppCustomersIndexRoute
+  AppCustomersCustomerIdEditRoute: typeof AppCustomersCustomerIdEditRoute
+  AppCustomersCustomerIdIndexRoute: typeof AppCustomersCustomerIdIndexRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppCalendarRoute: AppCalendarRoute,
+  AppContactsRoute: AppContactsRoute,
+  AppEmailRoute: AppEmailRoute,
+  AppHelpRoute: AppHelpRoute,
+  AppLeadsRoute: AppLeadsRoute,
+  AppPipelineRoute: AppPipelineRoute,
+  AppProfileRoute: AppProfileRoute,
+  AppReportsRoute: AppReportsRoute,
+  AppSettingsRoute: AppSettingsRoute,
+  AppTasksRoute: AppTasksRoute,
+  AppIndexRoute: AppIndexRoute,
+  AppCustomersNewRoute: AppCustomersNewRoute,
+  AppCustomersIndexRoute: AppCustomersIndexRoute,
+  AppCustomersCustomerIdEditRoute: AppCustomersCustomerIdEditRoute,
+  AppCustomersCustomerIdIndexRoute: AppCustomersCustomerIdIndexRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
