@@ -17,8 +17,10 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppCalendarRouteImport } from './routes/app.calendar'
 import { Route as AppContactsRouteImport } from './routes/app.contacts'
+import { Route as AppEmailRouteImport } from './routes/app.email'
 import { Route as AppLeadsRouteImport } from './routes/app.leads'
 import { Route as AppPipelineRouteImport } from './routes/app.pipeline'
+import { Route as AppReportsRouteImport } from './routes/app.reports'
 import { Route as AppTasksRouteImport } from './routes/app.tasks'
 import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
 import { Route as AppCustomersNewRouteImport } from './routes/app.customers.new'
@@ -65,6 +67,11 @@ const AppContactsRoute = AppContactsRouteImport.update({
   path: '/contacts',
   getParentRoute: () => AppRoute,
 } as any)
+const AppEmailRoute = AppEmailRouteImport.update({
+  id: '/email',
+  path: '/email',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppLeadsRoute = AppLeadsRouteImport.update({
   id: '/leads',
   path: '/leads',
@@ -73,6 +80,11 @@ const AppLeadsRoute = AppLeadsRouteImport.update({
 const AppPipelineRoute = AppPipelineRouteImport.update({
   id: '/pipeline',
   path: '/pipeline',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppReportsRoute = AppReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
   getParentRoute: () => AppRoute,
 } as any)
 const AppTasksRoute = AppTasksRouteImport.update({
@@ -111,8 +123,10 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/reports': typeof AppReportsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -127,8 +141,10 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/reports': typeof AppReportsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -145,8 +161,10 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
+  '/app/email': typeof AppEmailRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/reports': typeof AppReportsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -164,8 +182,10 @@ export interface FileRouteTypes {
     | '/register'
     | '/app/calendar'
     | '/app/contacts'
+    | '/app/email'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/reports'
     | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
@@ -180,8 +200,10 @@ export interface FileRouteTypes {
     | '/register'
     | '/app/calendar'
     | '/app/contacts'
+    | '/app/email'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/reports'
     | '/app/tasks'
     | '/app'
     | '/app/customers/new'
@@ -197,8 +219,10 @@ export interface FileRouteTypes {
     | '/register'
     | '/app/calendar'
     | '/app/contacts'
+    | '/app/email'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/reports'
     | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
@@ -273,6 +297,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppContactsRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/email': {
+      id: '/app/email'
+      path: '/email'
+      fullPath: '/app/email'
+      preLoaderRoute: typeof AppEmailRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/leads': {
       id: '/app/leads'
       path: '/leads'
@@ -285,6 +316,13 @@ declare module '@tanstack/react-router' {
       path: '/pipeline'
       fullPath: '/app/pipeline'
       preLoaderRoute: typeof AppPipelineRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/reports': {
+      id: '/app/reports'
+      path: '/reports'
+      fullPath: '/app/reports'
+      preLoaderRoute: typeof AppReportsRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/tasks': {
@@ -328,8 +366,10 @@ declare module '@tanstack/react-router' {
 interface AppRouteChildren {
   AppCalendarRoute: typeof AppCalendarRoute
   AppContactsRoute: typeof AppContactsRoute
+  AppEmailRoute: typeof AppEmailRoute
   AppLeadsRoute: typeof AppLeadsRoute
   AppPipelineRoute: typeof AppPipelineRoute
+  AppReportsRoute: typeof AppReportsRoute
   AppTasksRoute: typeof AppTasksRoute
   AppIndexRoute: typeof AppIndexRoute
   AppCustomersNewRoute: typeof AppCustomersNewRoute
@@ -341,8 +381,10 @@ interface AppRouteChildren {
 const AppRouteChildren: AppRouteChildren = {
   AppCalendarRoute: AppCalendarRoute,
   AppContactsRoute: AppContactsRoute,
+  AppEmailRoute: AppEmailRoute,
   AppLeadsRoute: AppLeadsRoute,
   AppPipelineRoute: AppPipelineRoute,
+  AppReportsRoute: AppReportsRoute,
   AppTasksRoute: AppTasksRoute,
   AppIndexRoute: AppIndexRoute,
   AppCustomersNewRoute: AppCustomersNewRoute,
