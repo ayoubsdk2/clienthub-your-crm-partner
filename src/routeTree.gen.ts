@@ -18,9 +18,12 @@ import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppCalendarRouteImport } from './routes/app.calendar'
 import { Route as AppContactsRouteImport } from './routes/app.contacts'
 import { Route as AppEmailRouteImport } from './routes/app.email'
+import { Route as AppHelpRouteImport } from './routes/app.help'
 import { Route as AppLeadsRouteImport } from './routes/app.leads'
 import { Route as AppPipelineRouteImport } from './routes/app.pipeline'
+import { Route as AppProfileRouteImport } from './routes/app.profile'
 import { Route as AppReportsRouteImport } from './routes/app.reports'
+import { Route as AppSettingsRouteImport } from './routes/app.settings'
 import { Route as AppTasksRouteImport } from './routes/app.tasks'
 import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
 import { Route as AppCustomersNewRouteImport } from './routes/app.customers.new'
@@ -72,6 +75,11 @@ const AppEmailRoute = AppEmailRouteImport.update({
   path: '/email',
   getParentRoute: () => AppRoute,
 } as any)
+const AppHelpRoute = AppHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppLeadsRoute = AppLeadsRouteImport.update({
   id: '/leads',
   path: '/leads',
@@ -82,9 +90,19 @@ const AppPipelineRoute = AppPipelineRouteImport.update({
   path: '/pipeline',
   getParentRoute: () => AppRoute,
 } as any)
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppReportsRoute = AppReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppSettingsRoute = AppSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AppRoute,
 } as any)
 const AppTasksRoute = AppTasksRouteImport.update({
@@ -124,9 +142,12 @@ export interface FileRoutesByFullPath {
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -142,9 +163,12 @@ export interface FileRoutesByTo {
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -162,9 +186,12 @@ export interface FileRoutesById {
   '/app/calendar': typeof AppCalendarRoute
   '/app/contacts': typeof AppContactsRoute
   '/app/email': typeof AppEmailRoute
+  '/app/help': typeof AppHelpRoute
   '/app/leads': typeof AppLeadsRoute
   '/app/pipeline': typeof AppPipelineRoute
+  '/app/profile': typeof AppProfileRoute
   '/app/reports': typeof AppReportsRoute
+  '/app/settings': typeof AppSettingsRoute
   '/app/tasks': typeof AppTasksRoute
   '/app/': typeof AppIndexRoute
   '/app/customers/new': typeof AppCustomersNewRoute
@@ -183,9 +210,12 @@ export interface FileRouteTypes {
     | '/app/calendar'
     | '/app/contacts'
     | '/app/email'
+    | '/app/help'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/profile'
     | '/app/reports'
+    | '/app/settings'
     | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
@@ -201,9 +231,12 @@ export interface FileRouteTypes {
     | '/app/calendar'
     | '/app/contacts'
     | '/app/email'
+    | '/app/help'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/profile'
     | '/app/reports'
+    | '/app/settings'
     | '/app/tasks'
     | '/app'
     | '/app/customers/new'
@@ -220,9 +253,12 @@ export interface FileRouteTypes {
     | '/app/calendar'
     | '/app/contacts'
     | '/app/email'
+    | '/app/help'
     | '/app/leads'
     | '/app/pipeline'
+    | '/app/profile'
     | '/app/reports'
+    | '/app/settings'
     | '/app/tasks'
     | '/app/'
     | '/app/customers/new'
@@ -304,6 +340,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppEmailRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/help': {
+      id: '/app/help'
+      path: '/help'
+      fullPath: '/app/help'
+      preLoaderRoute: typeof AppHelpRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/leads': {
       id: '/app/leads'
       path: '/leads'
@@ -318,11 +361,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppPipelineRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/profile': {
+      id: '/app/profile'
+      path: '/profile'
+      fullPath: '/app/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/reports': {
       id: '/app/reports'
       path: '/reports'
       fullPath: '/app/reports'
       preLoaderRoute: typeof AppReportsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/settings': {
+      id: '/app/settings'
+      path: '/settings'
+      fullPath: '/app/settings'
+      preLoaderRoute: typeof AppSettingsRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/tasks': {
@@ -367,9 +424,12 @@ interface AppRouteChildren {
   AppCalendarRoute: typeof AppCalendarRoute
   AppContactsRoute: typeof AppContactsRoute
   AppEmailRoute: typeof AppEmailRoute
+  AppHelpRoute: typeof AppHelpRoute
   AppLeadsRoute: typeof AppLeadsRoute
   AppPipelineRoute: typeof AppPipelineRoute
+  AppProfileRoute: typeof AppProfileRoute
   AppReportsRoute: typeof AppReportsRoute
+  AppSettingsRoute: typeof AppSettingsRoute
   AppTasksRoute: typeof AppTasksRoute
   AppIndexRoute: typeof AppIndexRoute
   AppCustomersNewRoute: typeof AppCustomersNewRoute
@@ -382,9 +442,12 @@ const AppRouteChildren: AppRouteChildren = {
   AppCalendarRoute: AppCalendarRoute,
   AppContactsRoute: AppContactsRoute,
   AppEmailRoute: AppEmailRoute,
+  AppHelpRoute: AppHelpRoute,
   AppLeadsRoute: AppLeadsRoute,
   AppPipelineRoute: AppPipelineRoute,
+  AppProfileRoute: AppProfileRoute,
   AppReportsRoute: AppReportsRoute,
+  AppSettingsRoute: AppSettingsRoute,
   AppTasksRoute: AppTasksRoute,
   AppIndexRoute: AppIndexRoute,
   AppCustomersNewRoute: AppCustomersNewRoute,
