@@ -16,6 +16,9 @@ import { Route as LoginRouteImport } from './routes/login'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as AppCustomersIndexRouteImport } from './routes/app.customers.index'
+import { Route as AppCustomersNewRouteImport } from './routes/app.customers.new'
+import { Route as AppCustomersCustomerIdIndexRouteImport } from './routes/app.customers.$customerId.index'
+import { Route as AppCustomersCustomerIdEditRouteImport } from './routes/app.customers.$customerId.edit'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -52,6 +55,23 @@ const AppCustomersIndexRoute = AppCustomersIndexRouteImport.update({
   path: '/customers/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppCustomersNewRoute = AppCustomersNewRouteImport.update({
+  id: '/customers/new',
+  path: '/customers/new',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppCustomersCustomerIdIndexRoute =
+  AppCustomersCustomerIdIndexRouteImport.update({
+    id: '/customers/$customerId/',
+    path: '/customers/$customerId/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCustomersCustomerIdEditRoute =
+  AppCustomersCustomerIdEditRouteImport.update({
+    id: '/customers/$customerId/edit',
+    path: '/customers/$customerId/edit',
+    getParentRoute: () => AppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,7 +80,10 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/app/': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers/': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId/': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,7 +91,10 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/app': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,7 +104,10 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/app/': typeof AppIndexRoute
+  '/app/customers/new': typeof AppCustomersNewRoute
   '/app/customers/': typeof AppCustomersIndexRoute
+  '/app/customers/$customerId/edit': typeof AppCustomersCustomerIdEditRoute
+  '/app/customers/$customerId/': typeof AppCustomersCustomerIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -89,7 +118,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/app/'
+    | '/app/customers/new'
     | '/app/customers/'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -97,7 +129,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/app'
+    | '/app/customers/new'
     | '/app/customers'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId'
   id:
     | '__root__'
     | '/'
@@ -106,7 +141,10 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/app/'
+    | '/app/customers/new'
     | '/app/customers/'
+    | '/app/customers/$customerId/edit'
+    | '/app/customers/$customerId/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -168,17 +206,44 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCustomersIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/customers/new': {
+      id: '/app/customers/new'
+      path: '/customers/new'
+      fullPath: '/app/customers/new'
+      preLoaderRoute: typeof AppCustomersNewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/$customerId/': {
+      id: '/app/customers/$customerId/'
+      path: '/customers/$customerId'
+      fullPath: '/app/customers/$customerId/'
+      preLoaderRoute: typeof AppCustomersCustomerIdIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/customers/$customerId/edit': {
+      id: '/app/customers/$customerId/edit'
+      path: '/customers/$customerId/edit'
+      fullPath: '/app/customers/$customerId/edit'
+      preLoaderRoute: typeof AppCustomersCustomerIdEditRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
+  AppCustomersNewRoute: typeof AppCustomersNewRoute
   AppCustomersIndexRoute: typeof AppCustomersIndexRoute
+  AppCustomersCustomerIdEditRoute: typeof AppCustomersCustomerIdEditRoute
+  AppCustomersCustomerIdIndexRoute: typeof AppCustomersCustomerIdIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
   AppIndexRoute: AppIndexRoute,
+  AppCustomersNewRoute: AppCustomersNewRoute,
   AppCustomersIndexRoute: AppCustomersIndexRoute,
+  AppCustomersCustomerIdEditRoute: AppCustomersCustomerIdEditRoute,
+  AppCustomersCustomerIdIndexRoute: AppCustomersCustomerIdIndexRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
