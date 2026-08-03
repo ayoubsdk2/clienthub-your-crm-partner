@@ -1,172 +1,87 @@
-# ClientHub: Your CRM Partner
+# ClientHub — Premium CRM Platform (Portfolio Demo)
 
-Build a premium CRM SaaS web application from scratch.
+ClientHub is a production-quality CRM interface built with TanStack Start, React, TypeScript and Tailwind CSS. It covers the full revenue workflow — landing page, demo auth, dashboard, customers, leads, a drag-and-drop sales pipeline, contacts, tasks, calendar, email, reports and settings — powered entirely by realistic mock data. No backend, no API keys, no external services.
 
-Project Name:
-ClientHub
+## Screenshots
 
-Repository Name:
-clienthub-crm
+### Landing Page
 
-Purpose:
-This project is for my GitHub portfolio. It should look like a real production-ready CRM platform while using realistic mock data only.
+![ClientHub landing page](./screenshots/landing.png)
 
-GENERAL
-- Modern UI inspired by HubSpot, Salesforce, Pipedrive and Zoho CRM.
-- Premium responsive design.
-- Dark and Light mode.
-- Smooth animations.
-- Beautiful typography.
-- Excellent UX.
+_Marketing site with hero, social proof, feature grid and an interactive product tour._
 
-LANDING PAGE
-- Hero section.
-- Features.
-- CRM product preview.
-- Pricing.
-- Testimonials.
-- FAQ.
-- Contact.
-- Footer.
+### Dashboard
 
-AUTHENTICATION
-- Login.
-- Register.
-- Forgot password.
-- Profile.
-- Demo authentication only.
+![ClientHub dashboard](./screenshots/dashboard.png)
 
-DASHBOARD
-- Revenue cards.
-- Leads overview.
-- Customers overview.
-- Sales pipeline.
-- Activity timeline.
-- Team performance.
-- Quick actions.
+_Revenue KPIs, revenue-vs-target chart, leads breakdown, activity timeline and team performance._
 
-CUSTOMERS
-- Customers list.
-- Customer details.
-- Add customer.
-- Edit customer.
-- Delete customer.
-- Customer profile.
+### Main Feature — Sales Pipeline Board
 
-LEADS
-- Leads page.
-- Lead status.
-- Assign sales representative.
-- Notes.
-- Search.
-- Filters.
+![ClientHub sales pipeline kanban board](./screenshots/pipeline.png)
 
-SALES PIPELINE
-- Kanban sales pipeline.
-- Lead stages.
-- Opportunity cards.
-- Drag and drop.
+_Drag-and-drop kanban board with per-stage totals and a weighted forecast that updates instantly._
 
-CONTACTS
-- Contact list.
-- Contact details.
-- Communication history.
+### Settings
 
-TASKS
-- Create task.
-- Edit task.
-- Assign task.
-- Due dates.
-- Status.
+![ClientHub settings page](./screenshots/settings.png)
 
-CALENDAR
-- Meetings.
-- Calls.
-- Follow-ups.
-- Upcoming events.
+_Profile, company, notifications, appearance (light/dark) and security preferences._
 
-EMAIL UI
-- Inbox preview.
-- Sent emails.
-- Email templates.
-- Campaign dashboard.
-- Mock data only.
+### Mobile View
 
-REPORTS
-- Sales charts.
-- Revenue analytics.
-- Conversion rate.
-- Monthly performance.
+![ClientHub dashboard on mobile](./screenshots/mobile.png)
 
-SETTINGS
-- Profile.
-- Company settings.
-- Notifications.
-- Appearance.
-- Security.
+_Fully responsive layout with a collapsible sidebar and stacked KPI cards._
 
-EXTRAS
-- Global search.
-- Notifications.
-- Loading skeletons.
-- Empty states.
-- 404 page.
-- Help Center.
+## Features
 
-DATA
-- Use realistic CRM mock data only.
-- No backend.
-- No API keys.
-- No external services.
+- **Dashboard** — revenue cards, leads and customers overview, pipeline summary, activity timeline, team performance, quick actions
+- **Customers** — list, detail profile, create, edit and delete
+- **Leads** — status tracking, rep assignment, notes, search and filters
+- **Sales pipeline** — kanban stages with drag-and-drop opportunity cards
+- **Contacts** — directory with communication history
+- **Tasks** — assignment, due dates, priorities and status
+- **Calendar** — meetings, calls, follow-ups and upcoming events
+- **Email** — inbox preview, sent items, templates and campaign dashboard
+- **Reports** — sales charts, revenue analytics, conversion rate, monthly performance
+- **Settings** — profile, company, notifications, appearance, security
+- **Extras** — global ⌘K search, notifications, loading skeletons, empty states, 404 page, Help Center
+- **Design** — light/dark mode, smooth animations, responsive premium UI
 
-QUALITY
-- Production-ready UI.
-- Clean architecture.
-- Reusable components.
-- No TypeScript errors.
-- No lint errors.
-- No console errors.
+## Tech Stack
 
-PORTFOLIO
-- Generate a professional README.md.
-- Generate screenshots.
-- Generate logo.
-- Generate favicon.
-- Generate Open Graph image.
-- Include MIT License.
+- [TanStack Start](https://tanstack.com/start) + TanStack Router (file-based routing)
+- React 19 + TypeScript
+- Tailwind CSS v4 with an OKLCH design-token system
+- shadcn/ui primitives, lucide-react icons, Recharts, Sonner
 
-DEPLOYMENT
-- Repository name: clienthub-crm.
-- Push all changes to GitHub.
-- Ensure the repository is Public if permissions allow.
-- Verify there are no secrets, API keys or sensitive files.
-- Remove debug code.
-- Perform a final review before pushing.
-
-IMPORTANT
-This is a GitHub portfolio showcase project.
-Use realistic mock data only.
-Do not integrate real backend services.
-Do not require API keys.
-Make it look like a premium CRM product ready for recruiters and clients
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/62f66c72-3335-492b-ae1d-35a5b30da51b).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+## Getting Started
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/<your-username>/clienthub-crm.git
+cd clienthub-crm
+npm install
 npm run dev
 ```
+
+The app runs at `http://localhost:8080`. Sign in with any email and password — authentication is simulated in the browser.
+
+## Project Structure
+
+```
+src/
+├─ components/   reusable UI, app shell, forms
+├─ lib/          mock data, CRM store, auth + theme providers
+├─ routes/       file-based routes (marketing, auth, /app modules)
+└─ styles.css    design tokens and theme
+screenshots/     README screenshots
+```
+
+## Data & Privacy
+
+All records are fictional mock data held in browser memory. Nothing is persisted to a server and no credentials or API keys are required.
+
+## License
+
+Released under the [MIT License](./LICENSE).
